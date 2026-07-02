@@ -6,11 +6,12 @@ import (
 )
 
 /*
-	Point Class
+	Point Struct
 	contains and x and y value
 */
 
 type Point struct {
+	// Initial variables
 	X float64 // x value
 	Y float64 // y value
 }
@@ -27,9 +28,9 @@ func (pt *Point) Distance() float64 {
 
 func (pt *Point) DistanceTo(otherPoint Point) float64 {
 	// Find the distance to another point
-	distanceX := math.Pow(pt.X-otherPoint.X, 2)
-	distanceY := math.Pow(pt.Y-otherPoint.Y, 2)
-	return math.Sqrt(distanceX + distanceY)
+	distanceX := pt.X - otherPoint.X
+	distanceY := pt.Y - otherPoint.Y
+	return math.Sqrt((distanceX * distanceX) + (distanceY * distanceY))
 }
 
 // Addition methods
